@@ -1,0 +1,18 @@
+body {
+	background-color: black;
+}
+
+#morseCode, h1 {
+	color: white;
+	text-align: center;
+}
+
+#letter {
+	color: white;
+	text-align: center;
+}
+
+p {
+	color: white;
+	text-align: center;	
+}
