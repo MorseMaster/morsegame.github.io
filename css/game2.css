@@ -2,7 +2,7 @@ body {
 	background-color: black;
 }
 
-#morseCode, h1 {
+#morseCode, h3 {
 	color: white;
 	text-align: center;
 }
@@ -10,9 +10,46 @@ body {
 #letter {
 	color: white;
 	text-align: center;
+	font-size: 32px;
 }
 
 p {
 	color: white;
-	text-align: center;	
+	text-align: center;
+	font-size: 12px;
+}
+.boxed-text { 
+   border: 2px solid white; 
+   padding: 10px; 
+   margin: 20px; 
+   border-radius: 15px; 
+   width: 825px; 
+   display: inline-block;
+}
+
+.square {
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    margin-bottom: 20px; 
+	position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+}
+
+.square::before {
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    height: 100%; 
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 19px, 
+        #e0e0e0 19px, 
+        #e0e0e0 20px 
+    );
 }
