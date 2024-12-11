@@ -52,7 +52,7 @@ a {
 .square::before {
     content: ""; 
     position: absolute; 
-    top: 20; 
+    top: 20px; 
     left: 0; 
     right: 0; 
     height: 100%; 
