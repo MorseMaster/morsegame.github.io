@@ -62,15 +62,21 @@ document.onkeyup = function (e) {
     oscillator.stop();
     keyIsDown = false;
     endTime = Date.now();
-    if (endTime - startTime < 50) {
+    if (endTime - startTime < 30) {
       alert('Sorry! You are clicking too fast!');
+	  keyIsDown = false;
       return;
     }
-    if (endTime - startTime > 500) {
+	if (endTime - startTime > 300) {
+		alert(`The dash was held to long, try again!`);
+		resultMorseCode.innerText = '';
+	}
+    if ((endTime - startTime > 200) && (endTime - startTime < 300)) {
       resultMorseCode.innerText += '-';
-    } else {
+    } else if ((endTime - startTime > 30) && (endTime - startTime < 180))  {
       resultMorseCode.innerText += '.';
     }
+	
     timer = setTimeout(() => {
       resultMorseCode.innerHTML += '&nbsp;';
     }, 800);
