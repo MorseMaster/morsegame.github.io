@@ -67,11 +67,11 @@ document.onkeyup = function (e) {
 	  keyIsDown = false;
       return;
     }
-	if (endTime - startTime > 300) {
+	if (endTime - startTime > 400) {
 		alert(`The dash was held to long, try again!`);
 		resultMorseCode.innerText = '';
 	}
-    if ((endTime - startTime > 200) && (endTime - startTime < 300)) {
+    if ((endTime - startTime > 200) && (endTime - startTime < 400)) {
       resultMorseCode.innerText += '-';
     } else if ((endTime - startTime > 30) && (endTime - startTime < 180))  {
       resultMorseCode.innerText += '.';
