@@ -13,7 +13,7 @@ nav {
     line-height: 75px;
     padding: 0 100px;
     position: fixed;
-    background-image: linear-gradient(#199974, #169772);
+    background-image: linear-gradient(#116E54, #127558);
     top: 0;
     left: 0;
 }
@@ -28,7 +28,7 @@ nav .logo a{
    text-decoration: none;
 }
 nav .logo a:hover{
-   color: #20AF86;
+   color: #158F6D;
    transition: all 0.4s ease 0s;
 }
 nav ul{
@@ -46,7 +46,7 @@ nav li a{
    text-decoration: none;
 }
 nav li a:hover{
-   color: #20AF86;
+   color: #158F6D;
    transition: all 0.4s ease 0s;
 }
 
@@ -58,7 +58,7 @@ nav li a:hover{
 }
 
 .my-button {
-    background-color: #33BE6F;
+    background-color: #64CFAF;
     color: black;
     text-align: center;
 	padding: 15px 20px;
@@ -71,5 +71,5 @@ nav li a:hover{
 }
 
 .my-button:hover {
-    background-color: #279959; 
+    background-color: #56B298; 
 }
