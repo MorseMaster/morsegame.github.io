@@ -58,7 +58,7 @@ nav li a:hover{
 }
 
 .my-button {
-    background-color: lightblue;
+    background-color: #33BE6F;
     color: black;
     text-align: center;
 	padding: 15px 20px;
@@ -71,5 +71,5 @@ nav li a:hover{
 }
 
 .my-button:hover {
-    background-color: deepskyblue; 
+    background-color: #279959; 
 }
