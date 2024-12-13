@@ -1,0 +1,8 @@
+button {
+  min-width: 2em;
+}
+
+#letters,
+#morse {
+  margin: 2em;
+}
