@@ -140,7 +140,8 @@ document.onkeyup = function (e) {
     resultMorseCode.innerText = "";
     generateLetter(); // Generate a new letter
   }
-  function helpButton() {
+  function helpButton(event) {
+    event.stopPropagation(); //funny bug
     document.getElementById("letter").innerText += ` (${morseCodeMap[currentLetter]}) `
   }
     document.getElementById("bouttonAide").addEventListener("click", helpButton);
