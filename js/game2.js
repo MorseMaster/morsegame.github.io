@@ -133,7 +133,4 @@ document.onkeyup = function (e) {
       message.innerText = "Correct! Bravo!";
     } else {
       message.innerText = "Incorrect! Vous avez écrit " + userInput + " Le code Morse correct pour " + currentLetter + " est " + correctMorse ;
-
-      resultMorseCode.innerText = "";
-      generateLetter(); 
-      message.innerText = "";
+    }
