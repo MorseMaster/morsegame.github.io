@@ -65,6 +65,7 @@ function generateLetter() {
   currentLetter = letters[randomIndex]; // Store the current letter
   // Display the random letter
   document.getElementById("letter").innerText = currentLetter;
+  document.getElementById("message").innerText = "";
 }
 
 // Call generateLetter when the page loads
@@ -108,12 +109,12 @@ document.onkeyup = function (e) {
     keyIsDown = false;
     endTime = Date.now();
     if (endTime - startTime < 30) {
-      message.innerText = "Désolé! Vous cliquez trop vite!";
+      showMessage("Désolé! Vous cliquez trop vite!");
       keyIsDown = false;
       return;
     }
     if (endTime - startTime > 500) {
-      message.innerText = "Le tiret a été maintenu trop longtemps, réessayez!";
+     showMessage("Le tiret a été maintenu trop longtemps, réessayez!");
       resultMorseCode.innerText = "";
     }
     if (endTime - startTime > 250 && endTime - startTime < 500) {
@@ -130,12 +131,23 @@ document.onkeyup = function (e) {
     const userInput = resultMorseCode.innerText.trim().replace(/\s+/g, " "); // Normalize spaces
     const correctMorse = morseCodeMap[currentLetter];
     if (userInput === correctMorse) {
-      message.innerText = "Correct! Bravo!";
+      showMessage("Correct! Bravo!");
     } else {
-      message.innerText = "Incorrect! Vous avez écrit " + userInput + " Le code Morse correct pour " + currentLetter + " est " + correctMorse ;
+      showMessage("Incorrect! Vous avez écrit " + userInput + " Le code Morse correct pour " + currentLetter + " est " + correctMorse);
     }
-    // Reset the Morse code input for the next attempt
-    resultMorseCode.innerText = "";
-    generateLetter(); // Generate a new letter
+
+    
+  function showMessage(text) {
+    message.innerText = text;
+    message.style.display = "block";
+
+    setTimeout(() => {
+      message.innerText = "";
+     }, 5000);
   }
-};
+    // Reset the Morse code input for the next attempt
+   document.getElementById("retryButton").addEventListener("click", function() {
+    generateLetter();
+    resultMorseCode.innerText = ""; 
+    messageDiv.innerText = "";
+});
