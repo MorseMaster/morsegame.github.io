@@ -25,16 +25,6 @@ const morseLettersList = {
   x: ["-", ".", ".", "-"],
   y: ["-", ".", "-", "-"],
   z: ["-", "-", ".", "."],
-  1: [".", "-", "-", "-", "-"],
-  2: [".", ".", "-", "-", "-"],
-  3: [".", ".", ".", "-", "-"],
-  4: [".", ".", ".", ".", "-"],
-  5: [".", ".", ".", ".", "."],
-  6: ["-", ".", ".", ".", "."],
-  7: ["-", "-", ".", ".", "."],
-  8: ["-", "-", "-", ".", "."],
-  9: ["-", "-", "-", "-", "."],
-  0: ["-", "-", "-", "-", "-"],
 };
 
 var isPlaying = false;
@@ -66,28 +56,4 @@ function playMorseLetterSequence(sequence, index) {
 
   oscillator.start(audioCtx.currentTime + 0.1);
   oscillator.stop(audioCtx.currentTime + 0.1 + delay);
-}
-
-function playLetter(letter) {
-  console.log("letter: ", letter);
-  console.log(morseLettersList[letter]);
-  playMorseLetterSequence(morseLettersList[letter], 0);
-}
-
-// maybe keep track of all the buttons to disable them while the sound is playing
-const letterButtons = [];
-
-var lettersContainer = document.getElementById("letters");
-for (const letter in morseLettersList) {
-  // create all the buttons
-  var letterButton = document.createElement("button");
-  letterButton.innerHTML = letter;
-  letterButton.onclick = function () {
-    if (!isPlaying) {
-      playLetter(letter);
-      return false;
-    }
-  };
-  //letterButtons.push(letterButton);
-  //lettersContainer.appendChild(letterButton);
 }
