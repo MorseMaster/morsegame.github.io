@@ -140,9 +140,15 @@ document.onkeyup = function (e) {
     resultMorseCode.innerText = "";
     generateLetter(); // Generate a new letter
   }
-  function helpButton(event) {
-    event.stopPropagation(); //funny bug
-    document.getElementById("letter").innerText += ` (${morseCodeMap[currentLetter]}) `
-  }
-    document.getElementById("bouttonAide").addEventListener("click", helpButton);
 };
+
+function helpButton(event) {
+  console.log("help button clicked");
+  event.stopPropagation(); //funny bug
+  document.getElementById(
+    "letter"
+  ).innerText += ` (${morseCodeMap[currentLetter]}) `;
+}
+
+console.log(document.getElementById("buttonAide"));
+document.getElementById("buttonAide").addEventListener("click", helpButton);
