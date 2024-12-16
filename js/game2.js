@@ -1,78 +1,34 @@
 const letters = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
+  "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
 ];
 
 // Morse code mapping for each letter
 const morseCodeMap = {
-  A: ".-",
-  B: "-...",
-  C: "-.-.",
-  D: "-..",
-  E: ".",
-  F: "..-.",
-  G: "--.",
-  H: "....",
-  I: "..",
-  J: ".---",
-  K: "-.-",
-  L: ".-..",
-  M: "--",
-  N: "-.",
-  O: "---",
-  P: ".--.",
-  Q: "--.-",
-  R: ".-.",
-  S: "...",
-  T: "-",
-  U: "..-",
-  V: "...-",
-  W: ".--",
-  X: "-..-",
-  Y: "-.--",
-  Z: "--..",
+  A: ".-", B: "-...", C: "-.-.", D: "-..", E: ".", F: "..-.", G: "--.", H: "....", I: "..", J: ".---", K: "-.-", L: ".-..", M: "--", N: "-.", O: "---", P: ".--.", Q: "--.-", R: ".-.", S: "...", T: "-", U: "..-", V: "...-", W: ".--", X: "-..-", Y: "-.--", Z: "--..",
 };
 
 let currentLetter = ""; // Store the current letter
+let lives = 3; // Initialize lives
 
 function generateLetter() {
-  // Generate a random index to select a letter
   const randomIndex = Math.floor(Math.random() * letters.length);
   currentLetter = letters[randomIndex]; // Store the current letter
-  // Display the random letter
-  document.getElementById("letter").innerText = currentLetter;
+  document.getElementById("letter").innerText = currentLetter; // Display the random letter
+}
+
+function updateLivesDisplay() {
+  document.getElementById("lives").innerText = "Vies: " + lives; // Update the lives display
 }
 
 // Call generateLetter when the page loads
 window.onload = function () {
   generateLetter();
+  updateLivesDisplay(); // Update lives display on load
 };
 
 const resultMorseCode = document.getElementById("morseCode");
+const message = document.getElementById("message"); // Assuming you have a message element
+const livesDisplay = document.getElementById("lives"); // Assuming you have a lives display element
 var keyIsDown = false;
 var startTime;
 var endTime;
@@ -92,7 +48,6 @@ function initializeAudio() {
 document.onkeydown = function (e) {
   if (e.code == "Space") {
     if (!keyIsDown) {
-      // if key is already down, ignore it
       initializeAudio();
       oscillator.start();
       keyIsDown = true;
@@ -126,21 +81,32 @@ document.onkeyup = function (e) {
       resultMorseCode.innerHTML += "&nbsp;";
     }, 800);
   }
-  
-      if (e.code == "Enter") {
-		const userInput = resultMorseCode.innerText.trim().replace(/\s+/g, " "); // Normalize spaces
-		const correctMorse = morseCodeMap[currentLetter];
-		if (userInput === correctMorse) {
-		  message.innerText = "Correct! Bravo!";
-		} else {
-		  message.innerText = "Incorrect! Vous avez écrit " + userInput + "\n Le code Morse correct pour " + currentLetter + " est " + correctMorse ;
-		}
-	
+
+  if (e.code == "Enter") {
+    const userInput = resultMorseCode.innerText.trim().replace(/\s+/g, " "); // Normalize spaces
+    const correctMorse = morseCodeMap[currentLetter];
+    if (userInput === correctMorse) {
+      message.innerText = "Correct! Bravo!";
+      resultMorseCode.innerText = ""; // Clear the input after correct answer
+      generateLetter(); // Generate a new letter
+    } else {
+      lives--; // Decrement lives
+      message.innerText = "Incorrect! Vous avez écrit " + userInput + "\n Le code Morse correct pour " + currentLetter + " est " + correctMorse;
+      updateLivesDisplay(); // Update lives display
+
+      if (lives <= 0) {alert("Vous n'avez plus de vies! Retour à la page d'accueil.");
+        window.location.href = "../index.html"; // Change this to your actual home page URL
+      } else {
+        // If lives are still available, generate a new letter
+        generateLetter();
+      }
+    }
   }
-  
-   if (e.code == "ArrowRight") {
-		message.innerText = "";
-		resultMorseCode.innerText = "";
-		generateLetter();
-	};
+
+  if (e.code == "ArrowRight") {
+    message.innerText = "";
+    resultMorseCode.innerText = "";
+    generateLetter();
+    updateLivesDisplay(); // Update lives display when generating a new letter
+  }
 };
