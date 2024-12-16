@@ -1,1 +1,65 @@
+body {
+	background-color: #072C22;
+}
 
+#morseCode {
+	color: white;
+	text-align: center;
+	font-size: 18px;
+}
+
+#letter {
+	color: black;
+	text-align: center;
+	font-size: 32px;
+}
+
+#message {
+	color: black;
+	text-align: center;
+}
+h2 {
+	color: white;
+	text-align: center;
+}
+
+p {
+	color: white;
+	text-align: center;
+	font-size: 12px;
+}
+
+.boxed-text { 
+   border: 2px solid white; 
+   padding: 10px; 
+   margin: 20px; 
+   border-radius: 15px; 
+   width: 825px; 
+   display: inline-block;
+}
+
+.square {
+    width: 400px;
+    height: 134px;
+    background-color: white;
+    margin-bottom: 20px; 
+	position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.square::before {
+    content: ""; 
+    position: absolute; 
+    top: 15px; 
+    left: 0; 
+    right: 0; 
+    height: 100%; 
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 19px, 
+        #e0e0e0 19px, 
+        #e0e0e0 20px 
+    );
+}
