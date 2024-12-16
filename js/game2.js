@@ -112,7 +112,7 @@ document.onkeyup = function (e) {
       keyIsDown = false;
       return;
     }
-    if (endTime - startTime > 400) {
+    if (endTime - startTime > 500) {
       alert(`Le tiret a été maintenu trop longtemps, réessayez!`);
       resultMorseCode.innerText = "";
     }
