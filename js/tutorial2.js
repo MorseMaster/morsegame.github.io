@@ -143,12 +143,10 @@ document.onkeyup = function (e) {
 };
 
 function helpButton(event) {
-  console.log("help button clicked");
   event.stopPropagation(); //funny bug
   document.getElementById(
     "letter"
   ).innerText += ` (${morseCodeMap[currentLetter]}) `;
 }
 
-console.log(document.getElementById("buttonAide"));
 document.getElementById("buttonAide").addEventListener("click", helpButton);
