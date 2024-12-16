@@ -133,7 +133,7 @@ document.onkeyup = function (e) {
       alert("Correct! Well done!");
     } else {
       alert(
-        `Incorrect! The correct Morse code for ${currentLetter} is ${correctMorse}`
+        `Incorrect! You wrote ${userInput} The correct Morse code for ${currentLetter} is ${correctMorse}`
       );
     }
     // Reset the Morse code input for the next attempt
