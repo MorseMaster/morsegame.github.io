@@ -40,7 +40,7 @@ p {
 
 .square {
     width: 400px;
-    height: 130px;
+    height: 134px;
     background-color: white;
     margin-bottom: 20px; 
 	position: absolute;
@@ -51,7 +51,7 @@ p {
 .square::before {
     content: ""; 
     position: absolute; 
-    top: 20px; 
+    top: 15px; 
     left: 0; 
     right: 0; 
     height: 100%; 
