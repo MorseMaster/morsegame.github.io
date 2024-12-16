@@ -116,9 +116,9 @@ document.onkeyup = function (e) {
       alert(`Le tiret a été maintenu trop longtemps, réessayez!`);
       resultMorseCode.innerText = "";
     }
-    if (endTime - startTime > 200 && endTime - startTime < 400) {
+    if (endTime - startTime > 250 && endTime - startTime < 500) {
       resultMorseCode.innerText += "-";
-    } else if (endTime - startTime > 30 && endTime - startTime < 180) {
+    } else if (endTime - startTime > 30 && endTime - startTime < 250) {
       resultMorseCode.innerText += ".";
     }
 
