@@ -134,8 +134,9 @@ document.onkeyup = function (e) {
     } else {
       message.innerText = "Incorrect! Vous avez écrit " + userInput + " Le code Morse correct pour " + currentLetter + " est " + correctMorse ;
     }
-    // Reset the Morse code input for the next attempt
-    resultMorseCode.innerText = "";
-    generateLetter(); // Generate a new letter
-  }
-};
+    
+    if (e.code == "rightArrow") {
+      generateLetter(); 
+      resultMorseCode.innerText = ""; 
+      message.innerText = ""; 
+    };
