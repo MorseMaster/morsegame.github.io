@@ -88,7 +88,6 @@ document.onkeyup = function (e) {
     if (userInput === correctMorse) {
       message.innerText = "Correct! Bravo!";
       resultMorseCode.innerText = ""; // Clear the input after correct answer
-      generateLetter(); // Generate a new letter
     } else {
       lives--; // Decrement lives
       message.innerText = "Incorrect! Vous avez écrit " + userInput + "\n Le code Morse correct pour " + currentLetter + " est " + correctMorse;
@@ -96,9 +95,6 @@ document.onkeyup = function (e) {
 
       if (lives <= 0) {alert("Vous n'avez plus de vies! Retour à la page d'accueil.");
         window.location.href = "../index.html"; // Change this to your actual home page URL
-      } else {
-        // If lives are still available, generate a new letter
-        generateLetter();
       }
     }
   }
