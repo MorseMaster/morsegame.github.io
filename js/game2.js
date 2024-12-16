@@ -108,12 +108,12 @@ document.onkeyup = function (e) {
     keyIsDown = false;
     endTime = Date.now();
     if (endTime - startTime < 30) {
-      alert("Désolé! Vous cliquez trop vite!");
+      message.innerText = "Désolé! Vous cliquez trop vite!";
       keyIsDown = false;
       return;
     }
     if (endTime - startTime > 500) {
-      alert(`Le tiret a été maintenu trop longtemps, réessayez!`);
+      message.innerText = "Le tiret a été maintenu trop longtemps, réessayez!";
       resultMorseCode.innerText = "";
     }
     if (endTime - startTime > 250 && endTime - startTime < 500) {
@@ -130,11 +130,9 @@ document.onkeyup = function (e) {
     const userInput = resultMorseCode.innerText.trim().replace(/\s+/g, " "); // Normalize spaces
     const correctMorse = morseCodeMap[currentLetter];
     if (userInput === correctMorse) {
-      alert("Correct! Bravo!");
+      message.innerText = "Correct! Bravo!";
     } else {
-      alert(
-        `Incorrect! Vous avez écrit ${userInput} Le code Morse correct pour ${currentLetter} est ${correctMorse}`
-      );
+      message.innerText = "Incorrect! Vous avez écrit ${userInput} Le code Morse correct pour ${currentLetter} est ${correctMorse}";
     }
     // Reset the Morse code input for the next attempt
     resultMorseCode.innerText = "";
