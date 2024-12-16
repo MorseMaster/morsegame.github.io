@@ -18,6 +18,11 @@ body {
 	color: black;
 	text-align: center;
 }
+
+#lives {
+	color: black;
+}
+
 h2 {
 	color: white;
 	text-align: center;
