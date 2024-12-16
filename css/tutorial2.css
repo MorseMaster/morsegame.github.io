@@ -2,8 +2,8 @@ body {
 	background-color: #072C22;
 }
 
-#bouttonAide {
-	
+#bouttonAide:hover {
+	cursor: pointer;
 }
 
 #morseCode {
