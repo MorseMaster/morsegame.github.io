@@ -86,7 +86,7 @@ function initializeAudio() {
   gain.gain.value = 50;
   oscillator = audioCtx.createOscillator();
   oscillator.connect(gain);
-  oscillator.frequency.value = 520;
+  oscillator.frequency.value = 450;
 }
 
 document.onkeydown = function (e) {
