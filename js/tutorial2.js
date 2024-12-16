@@ -139,9 +139,9 @@ document.onkeyup = function (e) {
     // Reset the Morse code input for the next attempt
     resultMorseCode.innerText = "";
     generateLetter(); // Generate a new letter
-
+  }
   function helpButton() {
     document.getElementById("letter").innerText += ` (${morseCodeMap[currentLetter]}) `
   }
-  }
+    document.getElementById("bouttonAide").addEventListener("click", helpButton);
 };
