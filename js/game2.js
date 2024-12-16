@@ -65,7 +65,6 @@ function generateLetter() {
   currentLetter = letters[randomIndex]; // Store the current letter
   // Display the random letter
   document.getElementById("letter").innerText = currentLetter;
-  document.getElementById("message").innerText = "";
 }
 
 // Call generateLetter when the page loads
@@ -109,12 +108,12 @@ document.onkeyup = function (e) {
     keyIsDown = false;
     endTime = Date.now();
     if (endTime - startTime < 30) {
-      showMessage("Désolé! Vous cliquez trop vite!");
+      message.innerText = "Désolé! Vous cliquez trop vite!";
       keyIsDown = false;
       return;
     }
     if (endTime - startTime > 500) {
-     showMessage("Le tiret a été maintenu trop longtemps, réessayez!");
+      message.innerText = "Le tiret a été maintenu trop longtemps, réessayez!";
       resultMorseCode.innerText = "";
     }
     if (endTime - startTime > 250 && endTime - startTime < 500) {
@@ -131,19 +130,12 @@ document.onkeyup = function (e) {
     const userInput = resultMorseCode.innerText.trim().replace(/\s+/g, " "); // Normalize spaces
     const correctMorse = morseCodeMap[currentLetter];
     if (userInput === correctMorse) {
-      showMessage("Correct! Bravo!");
+      message.innerText = "Correct! Bravo!";
     } else {
-      showMessage("Incorrect! Vous avez écrit " + userInput + " Le code Morse correct pour " + currentLetter + " est " + correctMorse);
+      message.innerText = "Incorrect! Vous avez écrit " + userInput + " Le code Morse correct pour " + currentLetter + " est " + correctMorse ;
     }
-
-    
-  function showMessage(text) {
-    message.innerText = text;
-    message.style.display = "block";
-  }
     // Reset the Morse code input for the next attempt
-   document.getElementById("retryButton").addEventListener("click", function() {
-    generateLetter();
-    resultMorseCode.innerText = ""; 
-    messageDiv.innerText = "";
-});
+    resultMorseCode.innerText = "";
+    generateLetter(); // Generate a new letter
+  }
+};
