@@ -126,16 +126,21 @@ document.onkeyup = function (e) {
       resultMorseCode.innerHTML += "&nbsp;";
     }, 800);
   }
-  if (e.code == "Enter") {
-    const userInput = resultMorseCode.innerText.trim().replace(/\s+/g, " "); // Normalize spaces
-    const correctMorse = morseCodeMap[currentLetter];
-    if (userInput === correctMorse) {
-      message.innerText = "Correct! Bravo!";
-    } else {
-      message.innerText = "Incorrect! Vous avez écrit " + userInput + " Le code Morse correct pour " + currentLetter + " est " + correctMorse ;
-    }
-    // Reset the Morse code input for the next attempt
-    resultMorseCode.innerText = "";
-    generateLetter(); // Generate a new letter
+  
+      if (e.code == "Enter") {
+		const userInput = resultMorseCode.innerText.trim().replace(/\s+/g, " "); // Normalize spaces
+		const correctMorse = morseCodeMap[currentLetter];
+		if (userInput === correctMorse) {
+		  message.innerText = "Correct! Bravo!";
+		} else {
+		  message.innerText = "Incorrect! Vous avez écrit " + userInput + "\n Le code Morse correct pour " + currentLetter + " est " + correctMorse ;
+		}
+	
   }
+  
+   if (e.code == "ArrowRight") {
+		message.innerText = "";
+		resultMorseCode.innerText = "";
+		generateLetter();
+	};
 };
