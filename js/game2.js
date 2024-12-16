@@ -140,10 +140,6 @@ document.onkeyup = function (e) {
   function showMessage(text) {
     message.innerText = text;
     message.style.display = "block";
-
-    setTimeout(() => {
-      message.innerText = "";
-     }, 5000);
   }
     // Reset the Morse code input for the next attempt
    document.getElementById("retryButton").addEventListener("click", function() {
