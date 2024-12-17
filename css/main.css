@@ -84,6 +84,15 @@ main {
   margin-top: 8em;
 }
 
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
 .translator {
     display: flex;
     justify-content: space-between;
