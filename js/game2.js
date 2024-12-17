@@ -1,3 +1,5 @@
+let allowNextLetter = false;
+
 const letters = [
   "A",
   "B",
@@ -138,6 +140,7 @@ document.onkeyup = function (e) {
   }
 
   if (e.code == "Enter") {
+    allowNextLetter = true;
     const userInput = resultMorseCode.innerText.trim().replace(/\s+/g, " "); 
     if (userInput !== "") {
       const correctMorse = morseCodeLetters[currentLetter];
@@ -159,9 +162,11 @@ document.onkeyup = function (e) {
   }
 
   if (e.code == "ArrowRight") {
-    message.innerText = "";
-    resultMorseCode.innerText = "";
-    generateLetter();
-    updateLivesDisplay(); 
+    if (allowNextLetter) {
+      message.innerText = "";
+      resultMorseCode.innerText = "";
+      generateLetter();
+      updateLivesDisplay(); 
+    }
   }
 };
