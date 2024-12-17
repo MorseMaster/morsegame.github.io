@@ -23,6 +23,10 @@ body {
 	color: black;
 }
 
+#lives {
+	color: white;
+}
+
 h2 {
 	color: white;
 	text-align: center;
