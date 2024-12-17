@@ -140,7 +140,7 @@ document.onkeyup = function (e) {
   }
 
   if (e.code == "Enter") {
-    allowNextLetter = false;
+    allowNextLetter = true;
     const userInput = resultMorseCode.innerText.trim().replace(/\s+/g, " "); 
     if (userInput !== "") {
       const correctMorse = morseCodeLetters[currentLetter];
