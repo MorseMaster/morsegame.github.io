@@ -57,7 +57,7 @@ const morseCodeLetters = {
 };
 
 let currentLetter = ""; 
-let lives = 3; 
+let lives2 = 3; 
 
 function generateLetter() {
   const randomIndex = Math.floor(Math.random() * letters.length);
@@ -66,7 +66,7 @@ function generateLetter() {
 }
 
 function updateLivesDisplay() {
-  document.getElementById("lives").innerText = "Vies: " + lives; 
+  document.getElementById("lives2").innerText = "Vies: " + lives; 
   if (lives <= 0) {
     setTimeout(() => {
       alert("Vous n'avez plus de vies! Retour à la page d'accueil.");
@@ -82,7 +82,7 @@ window.onload = function () {
 
 const resultMorseCode = document.getElementById("letter");
 const message = document.getElementById("message");
-const livesDisplay = document.getElementById("lives"); 
+const livesDisplay = document.getElementById("lives2"); 
 var timer;
 var oscillator;
 
@@ -147,7 +147,7 @@ document.onkeyup = function (e) {
           currentLetter +
           " est " +
           correctMorse;
-        lives--;
+        lives2--;
         updateLivesDisplay();
       }
       resultMorseCode.innerText = ""; 
