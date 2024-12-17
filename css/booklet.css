@@ -1,5 +1,6 @@
 button {
   min-width: 2em;
+  justify-content: space-between;
 }
 
 #letters,
