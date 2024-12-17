@@ -108,3 +108,17 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
+
+button {
+    padding: 10px 15px;
+    background-color: #64cfaf;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #56b298;
+}
