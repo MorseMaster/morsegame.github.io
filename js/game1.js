@@ -61,8 +61,8 @@ let lives = 3;
 
 function generateLetter() {
   const randomIndex = Math.floor(Math.random() * letters.length);
-  currentLetter = letters[randomIndex];
-  document.getElementById("letter").innerText = currentLetter;
+  currentLetter = morseCodeLetters[randomIndex];
+  document.getElementById("morseCodeLetter").innerText = currentLetter;
 }
 
 function updateLivesDisplay() {
@@ -75,18 +75,14 @@ function updateLivesDisplay() {
   }
 }
 
-
 window.onload = function () {
   generateLetter();
   updateLivesDisplay(); 
 };
 
-const resultMorseCode = document.getElementById("morseCode");
+const resultMorseCode = document.getElementById("letter");
 const message = document.getElementById("message");
 const livesDisplay = document.getElementById("lives"); 
-var keyIsDown = false;
-var startTime;
-var endTime;
 var timer;
 var oscillator;
 
