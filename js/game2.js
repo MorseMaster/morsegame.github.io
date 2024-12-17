@@ -1,10 +1,60 @@
 const letters = [
-  "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
 ];
 
 // Morse code mapping for each letter
 const morseCodeMap = {
-  A: ".-", B: "-...", C: "-.-.", D: "-..", E: ".", F: "..-.", G: "--.", H: "....", I: "..", J: ".---", K: "-.-", L: ".-..", M: "--", N: "-.", O: "---", P: ".--.", Q: "--.-", R: ".-.", S: "...", T: "-", U: "..-", V: "...-", W: ".--", X: "-..-", Y: "-.--", Z: "--..",
+  A: ".-",
+  B: "-...",
+  C: "-.-.",
+  D: "-..",
+  E: ".",
+  F: "..-.",
+  G: "--.",
+  H: "....",
+  I: "..",
+  J: ".---",
+  K: "-.-",
+  L: ".-..",
+  M: "--",
+  N: "-.",
+  O: "---",
+  P: ".--.",
+  Q: "--.-",
+  R: ".-.",
+  S: "...",
+  T: "-",
+  U: "..-",
+  V: "...-",
+  W: ".--",
+  X: "-..-",
+  Y: "-.--",
+  Z: "--..",
 };
 
 let currentLetter = ""; // Store the current letter
@@ -18,6 +68,12 @@ function generateLetter() {
 
 function updateLivesDisplay() {
   document.getElementById("lives").innerText = "Vies: " + lives; // Update the lives display
+  if (lives <= 0) {
+    setTimeout(() => {
+      alert("Vous n'avez plus de vies! Retour à la page d'accueil.");
+      window.location.href = "../index.html"; // Change this to your actual home page URL
+    }, 1000);
+  }
 }
 
 // Call generateLetter when the page loads
@@ -84,17 +140,21 @@ document.onkeyup = function (e) {
 
   if (e.code == "Enter") {
     const userInput = resultMorseCode.innerText.trim().replace(/\s+/g, " "); // Normalize spaces
-    const correctMorse = morseCodeMap[currentLetter];
-    if (userInput === correctMorse) {
-      message.innerText = "Correct! Bravo!";
-      resultMorseCode.innerText = ""; // Clear the input after correct answer
-    } else {
-      lives--; // Decrement lives
-      message.innerText = "Incorrect! Vous avez écrit " + userInput + "\n Le code Morse correct pour " + currentLetter + " est " + correctMorse;
-      updateLivesDisplay(); // Update lives display
-
-      if (lives <= 0) {alert("Vous n'avez plus de vies! Retour à la page d'accueil.");
-        window.location.href = "../index.html"; // Change this to your actual home page URL
+    if (userInput !== "") {
+      const correctMorse = morseCodeMap[currentLetter];
+      if (userInput === correctMorse) {
+        message.innerText = "Correct! Bravo!";
+        resultMorseCode.innerText = ""; // Clear the input after correct answer
+      } else {
+        message.innerText =
+          "Incorrect! Vous avez écrit " +
+          userInput +
+          "\n Le code Morse correct pour " +
+          currentLetter +
+          " est " +
+          correctMorse;
+        lives--; // Decrement lives
+        updateLivesDisplay(); // Update lives display
       }
     }
   }
