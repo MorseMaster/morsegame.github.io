@@ -144,7 +144,6 @@ document.onkeyup = function (e) {
       const correctMorse = morseCodeMap[currentLetter];
       if (userInput === correctMorse) {
         message.innerText = "Correct! Bravo!";
-        resultMorseCode.innerText = ""; // Clear the input after correct answer
       } else {
         message.innerText =
           "Incorrect! Vous avez écrit " +
@@ -156,6 +155,7 @@ document.onkeyup = function (e) {
         lives--; // Decrement lives
         updateLivesDisplay(); // Update lives display
       }
+      resultMorseCode.innerText = ""; // Clear the input
     }
   }
 
