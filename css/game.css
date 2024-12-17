@@ -68,3 +68,12 @@ p {
         #e0e0e0 20px 
     );
 }
+
+textarea {
+    width: 400px;
+    height: 300px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
