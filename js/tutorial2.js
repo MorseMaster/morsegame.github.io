@@ -1,3 +1,4 @@
+let isHelpShowing = false;
 const letters = [
   "A",
   "B",
@@ -60,6 +61,7 @@ const morseCodeMap = {
 let currentLetter = ""; // Store the current letter
 
 function generateLetter() {
+  isHelpShowing = false;
   // Generate a random index to select a letter
   const randomIndex = Math.floor(Math.random() * letters.length);
   currentLetter = letters[randomIndex]; // Store the current letter
@@ -143,10 +145,13 @@ document.onkeyup = function (e) {
 };
 
 function helpButton(event) {
-  event.stopPropagation(); //funny bug
-  document.getElementById(
-    "letter"
-  ).innerText += ` (${morseCodeMap[currentLetter]}) `;
+  if (!isHelpShowing) {
+    isHelpShowing = true; //another funny bug fixed
+    event.stopPropagation(); //funny bug
+    document.getElementById(
+      "letter"
+    ).innerText += ` (${morseCodeMap[currentLetter]}) `;
+  }
 }
 
 document.getElementById("buttonAide").addEventListener("click", helpButton);
