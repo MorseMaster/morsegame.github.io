@@ -17,15 +17,24 @@
         </ul>
       </nav>
     </menu>
-    <br /><br /><br /><br /><br /><br /><br />
-    <div class="inputBox">
-      <h1>Input</h1>
-      <p>Input</p>
-    </div>
-    <br /><br />
-    <div class="outputBox">
-      <h1>Output</h1>
-      <p>Output</p>
+    <br /><br /><br /><br /><br /><br /><br /><br />
+    <div class="container">
+        <h1>Traducteur de code Morse</h1>
+		<br>
+        <div class="translator">
+            <div class="text-to-morse">
+                <h2>Texte en code Morse</h2>
+                <textarea id="textInput" placeholder="Entrez le texte ici..."></textarea>
+                <button onclick="textToMorse()">Convertir</button>
+                <p><br>Code Morse: <span id="morseOutput"></span></p>
+            </div>
+            <div class="morse-to-text">
+                <h2>Code morse en text</h2>
+                <textarea id="morseInput" placeholder="Entrez le code morse ici..."></textarea>
+                <button onclick="morseToText()">Convertir</button>
+                <p><br>Text: <span id="textOutput"></span></p>
+            </div>
+        </div>
     </div>
   </body>
   <script type="text/javascript" src="./js/translator.js"></script>
