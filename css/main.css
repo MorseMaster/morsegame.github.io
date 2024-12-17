@@ -52,6 +52,10 @@ nav li a:hover {
   transition: all 0.4s ease 0s;
 }
 
+.aboutUsText {
+  margin: 2em;  
+}
+
 .button-container {
   display: flex;
   flex-wrap: wrap;
