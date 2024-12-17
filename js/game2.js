@@ -27,8 +27,7 @@ const letters = [
   "Z",
 ];
 
-// Morse code mapping for each letter
-const morseCodeMap = {
+const morseCodeLetters = {
   A: ".-",
   B: "-...",
   C: "-.-.",
@@ -57,34 +56,34 @@ const morseCodeMap = {
   Z: "--..",
 };
 
-let currentLetter = ""; // Store the current letter
-let lives = 3; // Initialize lives
+let currentLetter = ""; 
+let lives = 3; 
 
 function generateLetter() {
   const randomIndex = Math.floor(Math.random() * letters.length);
-  currentLetter = letters[randomIndex]; // Store the current letter
-  document.getElementById("letter").innerText = currentLetter; // Display the random letter
+  currentLetter = letters[randomIndex];
+  document.getElementById("letter").innerText = currentLetter;
 }
 
 function updateLivesDisplay() {
-  document.getElementById("lives").innerText = "Vies: " + lives; // Update the lives display
+  document.getElementById("lives").innerText = "Vies: " + lives; 
   if (lives <= 0) {
     setTimeout(() => {
       alert("Vous n'avez plus de vies! Retour à la page d'accueil.");
-      window.location.href = "../index.html"; // Change this to your actual home page URL
+      window.location.href = "../index.html"; 
     }, 1000);
   }
 }
 
-// Call generateLetter when the page loads
+
 window.onload = function () {
   generateLetter();
-  updateLivesDisplay(); // Update lives display on load
+  updateLivesDisplay(); 
 };
 
 const resultMorseCode = document.getElementById("morseCode");
-const message = document.getElementById("message"); // Assuming you have a message element
-const livesDisplay = document.getElementById("lives"); // Assuming you have a lives display element
+const message = document.getElementById("message");
+const livesDisplay = document.getElementById("lives"); 
 var keyIsDown = false;
 var startTime;
 var endTime;
@@ -139,9 +138,9 @@ document.onkeyup = function (e) {
   }
 
   if (e.code == "Enter") {
-    const userInput = resultMorseCode.innerText.trim().replace(/\s+/g, " "); // Normalize spaces
+    const userInput = resultMorseCode.innerText.trim().replace(/\s+/g, " "); 
     if (userInput !== "") {
-      const correctMorse = morseCodeMap[currentLetter];
+      const correctMorse = morseCodeLetters[currentLetter];
       if (userInput === correctMorse) {
         message.innerText = "Correct! Bravo!";
       } else {
@@ -152,10 +151,10 @@ document.onkeyup = function (e) {
           currentLetter +
           " est " +
           correctMorse;
-        lives--; // Decrement lives
-        updateLivesDisplay(); // Update lives display
+        lives--;
+        updateLivesDisplay();
       }
-      resultMorseCode.innerText = ""; // Clear the input
+      resultMorseCode.innerText = ""; 
     }
   }
 
@@ -163,6 +162,6 @@ document.onkeyup = function (e) {
     message.innerText = "";
     resultMorseCode.innerText = "";
     generateLetter();
-    updateLivesDisplay(); // Update lives display when generating a new letter
+    updateLivesDisplay(); 
   }
 };
