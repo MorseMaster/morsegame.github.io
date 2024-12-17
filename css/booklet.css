@@ -1,6 +1,7 @@
 button {
   min-width: 2em;
   justify-content: space-between;
+  padding: 15px;
 }
 
 #letters,
