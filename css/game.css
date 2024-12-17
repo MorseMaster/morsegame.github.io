@@ -69,9 +69,19 @@ p {
     );
 }
 
+.game1InputTextBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
 textarea {
-    width: 400px;
-    height: 300px;
+    width: 300px;
+    height: 100px;
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
