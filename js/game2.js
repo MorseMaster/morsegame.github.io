@@ -1,5 +1,3 @@
-let allowNextLetter = true
-
 const letters = [
   "A",
   "B",
@@ -140,7 +138,6 @@ document.onkeyup = function (e) {
   }
 
   if (e.code == "Enter") {
-    allowNextLetter = true;
     const userInput = resultMorseCode.innerText.trim().replace(/\s+/g, " "); 
     if (userInput !== "") {
       const correctMorse = morseCodeLetters[currentLetter];
@@ -160,8 +157,7 @@ document.onkeyup = function (e) {
       resultMorseCode.innerText = ""; 
     }
   }
-  
-if (allowNextLetter !== false) {
+
   if (e.code == "ArrowRight") {
     message.innerText = "";
     resultMorseCode.innerText = "";
