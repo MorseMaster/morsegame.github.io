@@ -83,5 +83,6 @@ textarea {
     margin: auto;
     padding: 20px;
     border-radius: 8px;
+    display: flex;
     flex-direction: column; 
 }
