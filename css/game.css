@@ -77,3 +77,11 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
