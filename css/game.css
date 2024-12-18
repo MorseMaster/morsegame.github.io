@@ -77,6 +77,7 @@ p {
     #e0e0e0 19px,
     #e0e0e0 20px
   );
+   z-index: 0;
 }
 
 .game1InputTextBox {
