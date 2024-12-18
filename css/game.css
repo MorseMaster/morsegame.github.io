@@ -23,6 +23,15 @@ body {
   color: white;
 }
 
+#buttonAide:hover,
+#showMorse:hover {
+  cursor: pointer;
+}
+
+#morseHint {
+  font-size: larger;
+}
+
 h2 {
   color: white;
   text-align: center;
@@ -79,9 +88,19 @@ button {
   padding: 10px 20px;
   cursor: pointer;
 }
+
 textarea {
   width: 300px;
   height: 100px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input {
+  width: 300px;
+  height: 20px;
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ccc;

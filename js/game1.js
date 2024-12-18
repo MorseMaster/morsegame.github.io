@@ -56,33 +56,37 @@ const morseCodeLetters = {
   Z: "--..",
 };
 
-let currentLetter = ""; 
-let lives2 = 3; 
+let currentLetter = "";
+let lives = 3;
 
 function generateLetter() {
   const randomIndex = Math.floor(Math.random() * letters.length);
-  currentLetter = morseCodeLetters[randomIndex];
-  document.getElementById("morseCodeLetter").innerText = currentLetter;
+  console.log("randomIndex: ", randomIndex);
+  currentLetter = letters[randomIndex];
+  currentLetterMorseCode = morseCodeLetters[currentLetter];
+  console.log("currentLetterMorseCode: ", currentLetterMorseCode);
+  // document.getElementById("morseCodeLetter").innerText = currentLetter;
+  playMorseLetterSequence(currentLetterMorseCode.split(""), 0);
 }
 
 function updateLivesDisplay() {
-  document.getElementById("lives2").innerText = "Vies: " + lives; 
+  document.getElementById("lives").innerText = "Vies: " + lives;
   if (lives <= 0) {
     setTimeout(() => {
       alert("Vous n'avez plus de vies! Retour à la page d'accueil.");
-      window.location.href = "../index.html"; 
+      window.location.href = "../index.html";
     }, 1000);
   }
 }
 
 window.onload = function () {
-  generateLetter();
-  updateLivesDisplay(); 
+  // generateLetter();
+  updateLivesDisplay();
 };
 
 const resultMorseCode = document.getElementById("letter");
 const message = document.getElementById("message");
-const livesDisplay = document.getElementById("lives2"); 
+const livesDisplay = document.getElementById("lives2");
 var timer;
 var oscillator;
 
@@ -96,17 +100,34 @@ function initializeAudio() {
   oscillator.frequency.value = 520;
 }
 
-document.onkeydown = function (e) {
-  if (e.code == "Space") {
-    if (!keyIsDown) {
-      initializeAudio();
-      oscillator.start();
-      keyIsDown = true;
-      startTime = Date.now();
-      window.clearTimeout(timer);
-    }
+function playMorseLetterSequence(sequence, index) {
+  isPlaying = true;
+  var delay = 0.3; // dot
+  if (sequence[index] == "-") {
+    delay = 0.6; // dash
+  } else if (sequence[index] == " ") {
+    delay = 1; // space
   }
-};
+  // showMorseCode.innerText += sequence[index];
+  // https://developer.mozilla.org/en-US/docs/Web/API/AudioContext
+  const audioCtx = new AudioContext();
+  const gain = audioCtx.createGain();
+  gain.connect(audioCtx.destination);
+  gain.gain.value = 50;
+  const oscillator = audioCtx.createOscillator();
+  oscillator.connect(gain);
+  oscillator.frequency.value = 520;
+  oscillator.addEventListener("ended", () => {
+    if (sequence.length - 1 != index) {
+      playMorseLetterSequence(sequence, index + 1);
+    } else {
+      isPlaying = false;
+    }
+  });
+
+  oscillator.start(audioCtx.currentTime + 0.1);
+  oscillator.stop(audioCtx.currentTime + 0.1 + delay);
+}
 
 document.onkeyup = function (e) {
   if (e.code == "Space") {
@@ -134,7 +155,7 @@ document.onkeyup = function (e) {
   }
 
   if (e.code == "Enter") {
-    const userInput = resultMorseCode.innerText.trim().replace(/\s+/g, " "); 
+    const userInput = resultMorseCode.innerText.trim().replace(/\s+/g, " ");
     if (userInput !== "") {
       const correctMorse = morseCodeLetters[currentLetter];
       if (userInput === correctMorse) {
@@ -150,7 +171,7 @@ document.onkeyup = function (e) {
         lives2--;
         updateLivesDisplay();
       }
-      resultMorseCode.innerText = ""; 
+      resultMorseCode.innerText = "";
     }
   }
 
@@ -158,6 +179,19 @@ document.onkeyup = function (e) {
     message.innerText = "";
     resultMorseCode.innerText = "";
     generateLetter();
-    updateLivesDisplay(); 
+    updateLivesDisplay();
   }
 };
+
+document.getElementById("showMorse").addEventListener("click", () => {
+  console.log(currentLetter);
+  document.getElementById("morseHint").innerText =
+    morseCodeLetters[currentLetter];
+});
+
+document.getElementById("buttonAide").addEventListener("click", () => {
+  console.log(currentLetter);
+  document.getElementById(
+    "morseHint"
+  ).innerText = `${morseCodeLetters[currentLetter]} (${currentLetter})`;
+});

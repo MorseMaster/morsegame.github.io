@@ -17,33 +17,36 @@
         <h2>Écrit la lettre qui correspond au audio écouter.</h2>
         <p>Insère la lettre dans la case si dessous.</p>
       </div>
+      <div id="ear">
+        <img
+          id="buttonAide"
+          src="../images/icon-aide.png"
+          alt="Boutton d'Aide"
+          height="30"
+        />
+        <img
+          id="showMorse"
+          src="../images/sound-off.png"
+          alt="je ne peux pas écouter maintenant"
+          height="100px"
+        />
+        <p class="white" id="morseHint"></p>
+      </div>
+      <p id="morseCode"></p>
+      <br />
+      <div class="white" id="lives">Vies: 3</div>
     </center>
-    <div class="white" id="lives">Vies: 3</div>
-    <div id="ear">
-      <img
-        src="../images/sound-off.png"
-        alt="je ne peux pas écouter maintenant"
-        height="35em"
-      />
-    </div>
-    <div id="message"></div>
-    <p id="morseCode"></p>
-    <br />
-    <img
-      id="buttonAide2"
-      src="../images/icon-aide.png"
-      alt="Boutton d'Aide"
-      height="30"
-    />
-    <div class="container2">
-      <div class="game1InputTextBox">
-        <textarea
+    <span class="container2">
+      <span class="game1InputTextBox">
+        <input
+		type="text"
           id="textInput"
           placeholder="Entrez votre réponse ici..."
-        ></textarea>
+        ></input>
         <button onclick="submit()">Rendre</button>
-      </div>
-    </div>
+        <button onclick="generateLetter()">Jouer Morse</button>
+      </span>
+    </span>
     <script src="../js/game1.js"></script>
   </body>
 </html>
