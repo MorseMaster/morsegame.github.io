@@ -1,30 +1,49 @@
 <!DOCTYPE html>
-<head>
-    	<meta charset="utf-8">
-    	<title>Morse</title>
-   	<link rel="stylesheet" href="../css/game.css"/> <!--"../css/game.css for GitHub-->
-</head>
-<body>
-	<div class=container>
-	   <a href="../index.html">
-  	   <img src="../images/homeIcon.img" alt="icon accueil" height="31">
- 	  </a>
-	</div>
-	<center><div class="boxed-text">
-            	<h2>Écrit la lettre qui correspond au audio écouter.</h2>
-            	<p>Insère la lettre dans la case si dessous.</p>
-	</div></center>
-		<div id="ear"><img src="../images/sound-off.png" alt="je ne peux pas écouter maintenant" height="35em"></div>
-		<div class="white" id="lives">Vies: 3</div>
-		<div id="message"></div>
-		<p id="morseCode"><br></p>
-	<div class="container2">
-	  <div class="game1InputTextBox">
-                <textarea id="textInput" placeholder="Entrez votre réponse ici..."></textarea>
-                <button onclick="submit()">Rendre</button>
-          </div>
-	</div>
-	<script src="../js/game1.js"></script>
-	</body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Morse</title>
+    <link rel="stylesheet" href="../css/game.css" />
+    <!--"../css/game.css for GitHub-->
+  </head>
+  <body>
+    <div class="container">
+      <a href="../index.html">
+        <img src="../images/homeIcon.img" alt="icon accueil" height="31" />
+      </a>
+    </div>
+    <center>
+      <div class="boxed-text">
+        <h2>Écrit la lettre qui correspond au audio écouter.</h2>
+        <p>Insère la lettre dans la case si dessous.</p>
+      </div>
+    </center>
+    <div class="white" id="lives">Vies: 3</div>
+    <div id="ear">
+      <img
+        src="../images/sound-off.png"
+        alt="je ne peux pas écouter maintenant"
+        height="35em"
+      />
+    </div>
+    <div id="message"></div>
+    <p id="morseCode"></p>
+    <br />
+    <img
+      id="buttonAide2"
+      src="../images/icon-aide.png"
+      alt="Boutton d'Aide"
+      height="30"
+    />
+    <div class="container2">
+      <div class="game1InputTextBox">
+        <textarea
+          id="textInput"
+          placeholder="Entrez votre réponse ici..."
+        ></textarea>
+        <button onclick="submit()">Rendre</button>
+      </div>
+    </div>
+    <script src="../js/game1.js"></script>
+  </body>
 </html>
-
