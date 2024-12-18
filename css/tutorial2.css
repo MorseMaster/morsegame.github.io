@@ -50,6 +50,7 @@ p {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1;
 }
 
 .square::before {
@@ -66,4 +67,5 @@ p {
     #e0e0e0 19px,
     #e0e0e0 20px
   );
+  z-index: 0;
 }
