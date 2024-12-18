@@ -58,34 +58,35 @@ const morseCodeLetters = {
   Z: "--..",
 };
 
-let currentLetter = ""; 
-let lives = 3; 
+let currentLetter = "";
+let lives = 3;
 
 function generateLetter() {
+  allowNextLetter = false;
   const randomIndex = Math.floor(Math.random() * letters.length);
   currentLetter = letters[randomIndex];
   document.getElementById("letter").innerText = currentLetter;
 }
 
 function updateLivesDisplay() {
-  document.getElementById("lives").innerText = "Vies: " + lives; 
+  document.getElementById("lives").innerText = "Vies: " + lives;
   if (lives <= 0) {
     setTimeout(() => {
       alert("Vous n'avez plus de vies! Retour à la page d'accueil.");
-      window.location.href = "../index.html"; 
+      window.location.href = "../index.html";
     }, 1000);
   }
 }
 
-
 window.onload = function () {
+  allowNextLetter = true;
   generateLetter();
-  updateLivesDisplay(); 
+  updateLivesDisplay();
 };
 
 const resultMorseCode = document.getElementById("morseCode");
 const message = document.getElementById("message");
-const livesDisplay = document.getElementById("lives"); 
+const livesDisplay = document.getElementById("lives");
 var keyIsDown = false;
 var startTime;
 var endTime;
@@ -140,9 +141,9 @@ document.onkeyup = function (e) {
   }
 
   if (e.code == "Enter") {
-    allowNextLetter = true;
-    const userInput = resultMorseCode.innerText.trim().replace(/\s+/g, " "); 
+    const userInput = resultMorseCode.innerText.trim().replace(/\s+/g, " ");
     if (userInput !== "") {
+      allowNextLetter = true;
       const correctMorse = morseCodeLetters[currentLetter];
       if (userInput === correctMorse) {
         message.innerText = "Correct! Bravo!";
@@ -157,7 +158,7 @@ document.onkeyup = function (e) {
         lives--;
         updateLivesDisplay();
       }
-      resultMorseCode.innerText = ""; 
+      resultMorseCode.innerText = "";
     }
   }
 
@@ -166,7 +167,7 @@ document.onkeyup = function (e) {
       message.innerText = "";
       resultMorseCode.innerText = "";
       generateLetter();
-      updateLivesDisplay(); 
+      updateLivesDisplay();
     }
   }
 };

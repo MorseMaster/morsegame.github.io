@@ -1,102 +1,98 @@
 body {
-	background-color: #072C22;
+  background-color: #072c22;
 }
 
 #morseCode {
-	color: white;
-	text-align: center;
-	font-size: 18px;
+  color: white;
+  text-align: center;
+  font-size: 18px;
 }
 
 #letter {
-	color: black;
-	text-align: center;
-	font-size: 32px;
+  color: black;
+  text-align: center;
+  font-size: 32px;
 }
 
 #message {
-	color: black;
-	text-align: center;
+  color: black;
+  text-align: center;
 }
 
-#lives {
-	color: black;
-}
-
-#lives {
-	color: white;
+.white {
+  color: white;
 }
 
 h2 {
-	color: white;
-	text-align: center;
+  color: white;
+  text-align: center;
 }
 
 p {
-	color: white;
-	text-align: center;
-	font-size: 15px;
+  color: white;
+  text-align: center;
+  font-size: 15px;
 }
 
-.boxed-text { 
-   border: 2px solid white; 
-   padding: 10px; 
-   margin: 20px; 
-   border-radius: 15px; 
-   width: 825px; 
-   display: inline-block;
+.boxed-text {
+  border: 2px solid white;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 15px;
+  width: 825px;
+  display: inline-block;
 }
 
 .square {
-    width: 400px;
-    height: 154px;
-    background-color: white;
-    margin-bottom: 20px; 
-	position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  width: 400px;
+  height: 154px;
+  background-color: white;
+  margin-bottom: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .square::before {
-    content: ""; 
-    position: absolute; 
-    top: 15px; 
-    left: 0; 
-    right: 0; 
-    height: 100%; 
-    background: repeating-linear-gradient(
-        to bottom,
-        transparent,
-        transparent 19px, 
-        #e0e0e0 19px, 
-        #e0e0e0 20px 
-    );
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 19px,
+    #e0e0e0 19px,
+    #e0e0e0 20px
+  );
 }
 
 .game1InputTextBox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 button {
-    padding: 10px 20px;
-    cursor: pointer;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 textarea {
-    width: 300px;
-    height: 100px;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  width: 300px;
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .container2 {
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column; 
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
 }
