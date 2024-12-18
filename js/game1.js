@@ -70,6 +70,8 @@ function generateLetter() {
 }
 
 function updateLivesDisplay() {
+  document.getElementById("morseHint").innerText = "";
+  document.getElementById("textInput").value = "";
   document.getElementById("lives").innerText = "Vies: " + lives;
   if (lives <= 0) {
     setTimeout(() => {
@@ -80,7 +82,6 @@ function updateLivesDisplay() {
 }
 
 window.onload = function () {
-  // generateLetter();
   updateLivesDisplay();
 };
 
@@ -176,12 +177,22 @@ document.onkeyup = function (e) {
   }
 
   if (e.code == "ArrowRight") {
-    message.innerText = "";
-    resultMorseCode.innerText = "";
     generateLetter();
     updateLivesDisplay();
   }
 };
+
+function rendre() {
+  let userAnswer = document.getElementById("textInput").value.toUpperCase();
+  console.log(userAnswer);
+  if (userAnswer == currentLetter) {
+    alert("Bien joué!");
+  } else {
+    lives--;
+    alert("Oops! La réponse êtait : " + currentLetter);
+  }
+  updateLivesDisplay();
+}
 
 document.getElementById("showMorse").addEventListener("click", () => {
   console.log(currentLetter);

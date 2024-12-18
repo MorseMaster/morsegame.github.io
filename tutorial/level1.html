@@ -1,19 +1,52 @@
-
 <!DOCTYPE html>
-<head>
-    	<meta charset="utf-8">
-    	<title>Morse</title>
-   	<link rel="stylesheet" href="../css/tutorial2.css"/> <!--"../css/game.css for GitHub-->
-</head>
-<body>
-	<div class=container>
-		<a href="../tutorial/"><img src="../images/homeIcon.img" alt="icon accueil" height="31"></img></a>
-	</div>
-	<center><div class="boxed-text">
-		<h2>Instructions go here</h2>
-		<p>(in french)</p>
-	</div></center>
-	<img id=buttonAide2 src="../images/icon-aide.png" alt="Boutton d'Aide" height="30">
-	<script src="../js/tutorial1.js"></script>
-	</body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Morse</title>
+    <link rel="stylesheet" href="../css/game.css" />
+    <!--"../css/game.css for GitHub-->
+  </head>
+  <body>
+    <div class="container">
+      <a href="../index.html">
+        <img src="../images/homeIcon.img" alt="icon accueil" height="31" />
+      </a>
+    </div>
+    <center>
+      <div class="boxed-text">
+        <h2>Écrit la lettre qui correspond au audio écouter.</h2>
+        <p>Insère la lettre dans la case si dessous.</p>
+      </div>
+      <div id="ear">
+        <img
+          id="buttonAide"
+          src="../images/icon-aide.png"
+          alt="Boutton d'Aide"
+          height="30"
+        />
+        <img
+          id="showMorse"
+          src="../images/sound-off.png"
+          alt="je ne peux pas écouter maintenant"
+          height="100px"
+        />
+        <p class="white" id="morseHint"></p>
+      </div>
+      <p id="morseCode"></p>
+      <br />
+      <div class="white" id="lives">Vies: 3</div>
+    </center>
+    <span class="container2">
+      <span class="game1InputTextBox">
+        <input
+		type="text"
+          id="textInput"
+          placeholder="Entrez votre réponse ici..."
+        ></input>
+        <button onclick="rendre()">Rendre</button>
+        <button onclick="generateLetter()">Jouer Morse</button>
+      </span>
+    </span>
+    <script src="../js/game1.js"></script>
+  </body>
 </html>
