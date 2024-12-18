@@ -1,22 +1,33 @@
 <!DOCTYPE html>
-<head>
-    	<meta charset="utf-8">
-    	<title>Morse</title>
-   	<link rel="stylesheet" href="../css/tutorial2.css"/> <!--"../css/game.css for GitHub-->
-</head>
-<body>
-	<div class=container>
-		<a href="../tutorial/"><img src="../images/homeIcon.img" alt="icon accueil" height="31"></img></a>
-	</div>
-	<center><div class="boxed-text">
-		<h2>Écrivez la lettre ci-dessous en code morse.</h2>
-		<p>Appuyez sur la barre d'espace pour créer votre code morse, sur Entrée pour le vérifier <br> et sur la flech droite pour continuer a la prochaine lettre.</p>
-	</div></center>
-	<div class="square">
-  	   		<img id=buttonAide src="../images/icon-aide.png" alt="Boutton d'Aide" height="30">
-		<div id="letter" class="prompt-box"></div>
-		<p id="morseCode"><br></p>
-	</div>
-	<script src="../js/tutorial2.js"></script>
-	</body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Morse</title>
+    <link rel="stylesheet" href="../css/game.css" />
+    <!--"../css/game.css for GitHub-->
+  </head>
+  <body>
+    <div class="container">
+      <a href="../index.html">
+        <img src="../images/homeIcon.img" alt="icon accueil" height="31" />
+      </a>
+    </div>
+    <center>
+      <div class="boxed-text">
+        <h2>Écrivez la lettre ci-dessous en code morse.</h2>
+        <p>
+          Appuyez sur la barre d'espace pour créer votre code morse, sur Entrée
+          pour le vérifier <br />
+          et sur la flech droite pour continuer a la prochaine lettre.
+        </p>
+      </div>
+    </center>
+    <div class="square">
+      <div id="letter" class="prompt-box"></div>
+      <div id="lives">Vies: 3</div>
+      <div id="message"></div>
+      <p id="morseCode"><br /></p>
+    </div>
+    <script src="../js/game2.js"></script>
+  </body>
 </html>
