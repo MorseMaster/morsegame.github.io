@@ -8,7 +8,7 @@
   </head>
   <body>
     <menu>
-      <nav>
+      <nav> 
         <div class="logo">
           <p><a href="index.html">Morse Masters</a></p>
         </div>
@@ -18,19 +18,19 @@
       </nav>
     </menu>
     <br /><br /><br /><br /><br /><br /><br /><br />
-    <div class="container">
-        <div class="translator">
-            <div class="text-to-morse">
-                <h2>Texte en code Morse</h2>
+    <div class="container">  <!-- Garde le traducteur au milieu-->
+        <div class="translator">  <!-- Garde le text avec les boites -->
+            <div class="text-to-morse">  <!-- Boite pour text en morse -->
+                <h2>Texte en code Morse</h2> 
                 <textarea id="textInput"></textarea>
-                <button onclick="textToMorse()">Convertir</button>
-                <p><br>Code Morse: <span id="morseOutput"></span></p>
+                <button onclick="textToMorse()">Convertir</button>  <!-- boutton pour convertir de text en morse -->
+                <p><br>Code Morse: <span id="morseOutput"></span></p>  <!-- Montre le code morse -->
             </div>
-            <div class="morse-to-text">
+            <div class="morse-to-text">  <!-- Boite pour morse en text -->
                 <h2>Code morse en text</h2>
                 <textarea id="morseInput"></textarea>
-                <button onclick="morseToText()">Convertir</button>
-                <p><br>Text: <span id="textOutput"></span></p>
+                <button onclick="morseToText()">Convertir</button> <!-- boutton pour convertir de morse en text -->
+                <p><br>Text: <span id="textOutput"></span></p> <!-- Montre le text -->
             </div>
         </div>
     </div>
