@@ -56,19 +56,19 @@ const morseCodeLetters = {
   X: "-..-",
   Y: "-.--",
   Z: "--..",
-};
+}; // les lettres morse
 
-let currentLetter = "";
+let currentLetter = ""; 
 let lives = 3;
 
-function generateLetter() {
+function generateLetter() { // fonction pour randomiser les lettres 
   allowNextLetter = false;
   const randomIndex = Math.floor(Math.random() * letters.length);
   currentLetter = letters[randomIndex];
-  document.getElementById("letter").innerText = currentLetter;
+  document.getElementById("letter").innerText = currentLetter; // montre la lettre aléatoir
 }
 
-function updateLivesDisplay() {
+function updateLivesDisplay() { // fonction pour montrer les vies
   document.getElementById("lives").innerText = "Vies: " + lives;
   if (lives <= 0) {
     setTimeout(() => {
