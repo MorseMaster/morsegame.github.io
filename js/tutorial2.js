@@ -56,20 +56,17 @@ const morseCodeMap = {
   X: "-..-",
   Y: "-.--",
   Z: "--..",
-};
+}; // alphabet morse
 
-let currentLetter = ""; // Store the current letter
+let currentLetter = "";
 
 function generateLetter() {
   isHelpShowing = false;
-  // Generate a random index to select a letter
   const randomIndex = Math.floor(Math.random() * letters.length);
-  currentLetter = letters[randomIndex]; // Store the current letter
-  // Display the random letter
+  currentLetter = letters[randomIndex];
   document.getElementById("letter").innerText = currentLetter;
 }
 
-// Call generateLetter when the page loads
 window.onload = function () {
   generateLetter();
 };
@@ -138,9 +135,8 @@ document.onkeyup = function (e) {
         `Incorrect! The correct Morse code for ${currentLetter} is ${correctMorse}`
       );
     }
-    // Reset the Morse code input for the next attempt
     resultMorseCode.innerText = "";
-    generateLetter(); // Generate a new letter
+    generateLetter(); 
   }
 };
 
