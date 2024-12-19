@@ -1,3 +1,4 @@
+//Suppost to être appélé test2.js (to much of a bother to change)
 let isHelpShowing = false;
 const letters = [
   "A",
