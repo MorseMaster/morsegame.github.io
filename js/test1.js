@@ -1,4 +1,5 @@
-const letters = [
+//Même comments que game1.js
+const letters = [ 
   "A",
   "B",
   "C",
